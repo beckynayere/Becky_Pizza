@@ -1,7 +1,6 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from . import login_manager
 from datetime import datetime
 
 
@@ -21,16 +20,7 @@ class Pizza:
     toppings=db.Column(db.String)
     price=db.Column(db.Integer)
 
-    all_pizza = []
 
-
-    def __init__(self, id, toppings,flavor, price):
-
-        self.id = id
-        self.size= size
-        self.flavor= flavor
-        self.toppings=toppings
-        self.price= price
 
     def save_pizza(self):
         Pizza.all_pizza.append(self)
@@ -38,7 +28,7 @@ class Pizza:
         db.session.commit()
          
 
-    @classsmethod
+    @classmethod
     def get_pizza(cls,pizza_id):
         """
         Returns a pizza depending on the id
@@ -46,7 +36,8 @@ class Pizza:
         pizza_size=Pizza.query.filter_by(id=pizza_id).all()
         return pizza_size
 
-class Flavor(db.model):
+
+class Flavor(db.Model):
     __tablename__="flavor"
 
     id=db.Column(db.Integer,primary_key=True)
@@ -62,7 +53,7 @@ class Flavor(db.model):
         db.session.commit()
 
 
-    @classsmethod
+    @classmethod
     def get_flavor(cls,id) :
         flavor = Flavor.query.filter_by(flavor_id=id).all()
         return flavor

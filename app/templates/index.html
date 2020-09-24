@@ -1,21 +1,670 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <main class="hero-section">
-        <div class="container">
-            <div class="section-content">
-                <h2>Welcome, {{ user }}!</h2>
-                <h2>Discover your next favorite pizza!</h2>
-                <a href="{{ url_for('signup') }}" class="btn-primary">Sign-Up</a>
-                <a href="{{ url_for('login') }}" class="btn-primary">Login</a>
-                <a href="{{ url_for('order') }}" class="btn-primary">Order</a>
+
+{%block styles%}
+
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}">
+
+{%endblock%}
+
+
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#home"><img class="logo" src="../static/image/logo.jpg" width="50px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#pizzas"> Choose Pizza</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#crusts"> Crust</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#toppingss">Toppings</a>
+            </li>
+        </ul>
+        <span class="float-right">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown float-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Delivery</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#location">Nairobi</a>
+                        <a class="dropdown-item" href="#location">Nairobi County</a>
+                        <a class="dropdown-item" href="#location">650 kilometres</a>
+                        <a class="dropdown-item" href="#location">Diaspora</a>
+                </li>
+                <!--cart-->
+                <div class="cart">
+                    <img src="../static/image/cart.jpg" />
+                    <a href="#">Cart</a>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact us</a>
+                </li>
+            </ul>
+        </span>
+    </div>
+</nav>
+<!-- The home page  -->
+<section id="home" class="container-fluid" style="padding-top: 7.3vh;">
+    <div class="row" id="section" style="background-image:url('image/home.png');">
+        <img class="slideRight" src="../static/image/logo.jpg" alt="mouse_click.png" srcset="">
+        <h1 class="slideRight">Welcome</h1>
+        <h3 class="slideRight">To</h3>
+        <h1 class="slideRight"><i>Pizza-Bites</i> </h1>
+        <h6 class="slideRight">WE GOT YOU COVERED!!!</h6>
+
+    </div>
+</section>
+<!-- main section, the pizza section -->
+<main class="container-fluid " id="pizzas">
+    <h2>Order your pizza now</h2>
+    <div class="row main-row">
+        <div class="pizza" id="pizza">
+            <div>
+                <h2>Large pizza</h2>
+                <img src="../static/image/large-pizza.png" alt="large pizza">
+            </div>
+            <div>
+                <h4>GRILLED CHICKEN</h4>
+                <P>Winter Pizza though all time!</P>
+                <br>
+                <p class="text-muted">Price</p>
+                <span name="pizza" class="radioButton">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked
+                            value="1000">
+                        <label style="zoom: 2.5;" class="custom-control-label text-primary" for="customRadio1">
+                            1000</label>
+                    </div>
+                </span>
             </div>
         </div>
-
-        <div class="section-device">
-            <img src="static/img/pizza.png">
+        <div class="pizza" id="pizza">
+            <div>
+                <h2>Medium pizza</h2>
+                <img src="../static/image/medium-pizza.jpg" alt="medium-pizza">
+            </div>
+            <div>
+                <h4>PEPPERONI PIZZA</h4>
+                <P>The most loved pizza in town.</P>
+                <br>
+                <p class="text-muted">Price</p>
+                <span name="pizza" class="radioButton">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"
+                            value="900">
+                        <label style="zoom: 2.5;" class="custom-control-label text-primary" for="customRadio2">
+                            900</label>
+                    </div>
+                </span>
+            </div>
         </div>
+        <div class=" pizza" id="pizza">
+            <div>
+                <h2>Small pizza</h2>
+                <img src="../static/image/small-pizza.jpg" alt="small pizza">
+            </div>
+            <div>
+                <h4>VEGETARIAN PIZZA</h4>
+                <p>And for the vegetarians, this is the best for you.Too sweet. You will end up eating more than ever
+                    before.
+                </p>
+                <br>
+                <p class="text-muted">Price</p>
+                <span name="pizza" class="radioButton">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input"
+                            value="1100">
+                        <label style="zoom: 2.5;" class="custom-control-label text-primary"
+                            for="customRadio3">1100</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</main>
+<br id="crusts">
+<!-- type of crust section -->
+<section class="container">
+    <div class="row">
+        <div class="card text-center">
+            <div class="card-header">
+                <h2> <i>Make your pizza insanely yummy by adding a crust on it.</i></h2>
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <span class="nav-link active" id="crust">Crispy Crust</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link" id="stuffed">Stuffed Crust</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link" id="gluten">Gluten Crust</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- The crispy crust -->
+            <div class="card-body" id="initiallyShown">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../static/image/stuffed-crust.jpg" style="margin: 12px 6px;" min-height="250px"
+                                class="card-img" alt="stuffed crust">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">Crispy Crust</h3>
+                                <p class="card-text">Crispy and straight out of the oven--that's the way I like my thin
+                                    crust pizza.
+                                    It has a nice crunch to it, and the pizza's toppings shine on their own. You won't
+                                    get overpowered
+                                    by a huge piece of bread at the end of each slice. So, if you judge a pizza by the
+                                    quality of its
+                                    toppings, this is the best type of pizza crust for you..</p>
+                                <span name="crust" class="radioButton">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                            class="custom-control-input" value="1350" checked>
+                                        <label style="zoom: 2;" class="custom-control-label"
+                                            for="customRadioInline1">13500</label>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- The stuffed crust-->
+            <div class="card-body" id="initiallyHidden1">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../static/image/thin-crust.jpg" style="margin: 12px 6px;" min-height="250px"
+                                class="card-img" alt="stuffed crust">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title"> Stuffed Crust</h3>
+                                <p class="card-text">Cheese on cheese on cheese is the perfect way to describe this type
+                                    of crust. If
+                                    a four-cheese pizza isn't enough for you, why not stuff some more of it into the
+                                    crust? The gooey
+                                    richness fulfills every cheese lover's dream. So if your heaven is a cheese shop, we
+                                    have the
+                                    perfect type of crust for you and it's the cheesiest around!.</p>
+                                <span name="crust" class="radioButton">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                            class="custom-control-input" value="1300">
+                                        <label style="zoom: 2;" class="custom-control-label"
+                                            for="customRadioInline2">1300</label>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- gutten free crust -->
+            <div class="card-body" id="initiallyHidden2">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="../static/image/gluten-Free-crust.jpg" style="margin: 12px 6px;" min-height="250px"
+                                class="card-img" alt="stuffed crust">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">Gluten free crust</h3>
+                                <p class="card-text">If you are looking for a hearty slice, Sicilian is certainly on the
+                                    road to deep
+                                    dish level pizza. It does have a hefty crust to topping ratio, so be prepared.
+                                    Sicilian crust
+                                    occupies the no-man's land between thin and thick, but don't question it, just take
+                                    a huge bite and
+                                    enjoy! Embrace Sicilian's squareness because it makes the whole pizza experience a
+                                    bit less messy.
+                                </p>
+                                <span name="crust" class="radioButton">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline3" name="customRadioInline1"
+                                            class="custom-control-input" value="1250">
+                                        <label style="zoom: 2;" class="custom-control-label "
+                                            for="customRadioInline3">1250</label>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<!-- section to choose the type of toppings -->
+<article class="container-fluid" id="toppingss">
+    <h3>Need toppings on your pizza?</h3>
+    <h4>Make your selection here.</h4>
+    <div class="row toppings">
+        <!-- bacon card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Bacon</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/pizza-bacon-mushrooms.jpg" alt="bacon">
+                <hr>
+                <p class="card-text">Bacon goes well with anything (try us), so of course it’s a popular pizza topping.
+                    This
+                    fresh spring recipe gets salty, meaty flavor from just a few bacon crumbles.</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" value="1050" checked>
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck1">1050</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <!-- basil card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Basil</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/basil-pizza.jpg" alt="basil">
+                <hr>
+                <p class="card-text">A few fresh basil leaves will taste amazing with any pizza. This simple summertime
+                    pizza
+                    would make a delicious cookout appetizer.</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" value="950">
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck2">950</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <!-- mushroom card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Mushroom</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/mushroom.jpg" alt="mushroom">
+                <hr>
+                <p class="card-text">This earthy topping can be divisive in the kitchen, but many agree that it fits
+                    right in
+                    on a pizza, and this breakfast recipe is just perfect</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3" value="850">
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck3">850</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- second row of toppings section -->
+    <div class="row toppings">
+        <!-- peppers card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Peppers</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/pepper-pizza.jpg" alt="pepper">
+                <hr>
+                <p class="card-text">Bacon goes well with anything (try us), so of course it’s a popular pizza topping.
+                    This
+                    fresh spring recipe gets salty, meaty flavor from just a few bacon crumbles.</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck4" value="900">
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck4">900</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <!-- pesto card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Pesto</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/pesto.jpg" alt="pesto">
+                <hr>
+                <p class="card-text">A few fresh basil leaves will taste amazing with any pizza. This simple summertime
+                    pizza
+                    would make a delicious cookout appetizer.</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck5" value="700">
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck5">700</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <!-- pineaple card -->
+        <div id="card" class="card border-default mb-3" style="width: 30%;">
+            <div class="card-header bg-transparent border-default">Pineaple</div>
+            <div class="card-body text-primary">
+                <img src="../static/image/hawaiian-pizza.jpg" alt="pineaple">
+                <hr>
+                <p class="card-text">This earthy topping can be divisive in the kitchen, but many agree that it fits
+                    right in
+                    on a pizza, and this breakfast recipe is just perfect</p>
+            </div>
+            <div class="card-footer bg-transparent border-default">
+                <!-- the chechbox -->
+                <span name="toppings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck6" value="350">
+                        <label style="zoom: 2;" class="custom-control-label" for="customCheck6">350</label>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</article>
+<br>
+<!-- delivery section -->
+<aside class="container" id="Location">
+    <div class="row">
+        <div class="jumbotron">
+            <h3>Would you like to have your pizza delivered?</h3>
+            <p>It will take a maximum of 1 hour or 45 minutes for deliveries within Nairobi CBD and 2hours for
+                deliveries
+                within 750 km radius from Nairobi. For the rest, a maximum of 48hours.</p>
+            <p>We offer delivery Services.</p>
+            <hr class="my-4">
+            <h3>Select your location here </h3>
+            <div width="40% !important">
+                <select class="custom-select custom-select-lg mb-4 deliveryLocation" id="deliverySelected">
+                    <option value="0" selected>Open this to select your location ...</option>
+                    <option value="100">Nairobi CBD </b></option>
+                    <option value="200">Nairobi county</option>
+                    <option value="300">within 750km from Nairobi</option>
+                    <option value="400">Diaspora Nairobi on Thika road,Kahawa</option>
+                </select>
+            </div>
+            <!-- delivery place -->
+            <div class="input-group mb-3 myTown">
+                <div class="input-group-prepend">
+                    <button onclick="deliveryPlace()" class="btn btn-outline-secondary" type="button"
+                        id="button-addon1">Submit</button>
+                </div>
+                <input id="town" type="text" class="form-control" placeholder="Enter your nearest town ..."
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            <p id="townOutput" class="text-danger"></p>
+            <!--  -->
+        </div>
+    </div>
+</aside>
+<br>
+<!-- summary section -->
+<hr>
+<aside class="container">
+    <div class="row receiptMain">
+        <div class="jumbotron menu" id="menu">
+            <h1><i>Receipt:</i></h1>
+            <!-- number of pizza to order -->
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Pizzas to order:</label>
+                </div>
+                <input id="numberOfPizza" type="number" value="1" class="form-control"
+                    placeholder="Enter number of pizza ..." aria-label="Example text with button addon"
+                    aria-describedby="button-addon1">
+            </div>
 
-        <div class="clearfix"></div>
-    </main>
-{% endblock %}
+            <table class="table table-bordered">
+                <!-- pizza size -->
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">#</th>
+                        <th scope="col">Pizza Size</th>
+                        <th scope="col">pizza Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td id="pizzaSize">......</td>
+                        <td id="pizzaCost">.........</td>
+                    </tr>
+                </tbody>
+                <!-- crust -->
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">#</th>
+                        <th scope="col">Type of crust</th>
+                        <th scope="col">Cost of crust</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td id="typeOfCrust">......</td>
+                        <td id="crustCost">.........</td>
+                    </tr>
+                </tbody>
+                <!-- toppings -->
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">#</th>
+                        <th scope="col">Toppings</th>
+                        <th scope="col">Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td id="typesOfToppings">......</td>
+                        <td id="costOfToppings">.........</td>
+                    </tr>
+                </tbody>
+                <!-- Delivery cost -->
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">#</th>
+                        <th scope="col">Delivery place</th>
+                        <th scope="col">Delivery Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td id="deliveryLocation">......</td>
+                        <td id="deliveryCost">.........</td>
+                    </tr>
+                </tbody>
+                <!-- total cost -->
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col">Total</th>
+                        <th scope="col">Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td id="totalCost">......</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p id="message" class="text-success"></p>
+
+            <button class="btn btn-default" style="border: 1px solid red;" onclick="myFunction(); myMessage()"><a
+                    href="#menu">Place Order</a></button>
+
+        </div>
+    </div>
+</aside>
+<!-- order button -->
+<button id="order" class="btn btn-default" onclick="myFunction()"><a href="#menu">View Order</a></button>
+
+
+<div class="card"></div>
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+
+    <!-- Footer Elements -->
+    <footer id="footer" class="container-fluid">
+
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9484798063927!2d36.921978014547044!3d-1.1964340991273164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3fba2970841f%3A0x27284ed0bb076d86!2sMagunas%20Supermarket%20Kahawa%20Wendani!5e0!3m2!1sen!2ske!4v1596474793072!5m2!1sen!2ske"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+
+
+        <!-- Grid row-->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center">
+                    <!--Behance-->
+                    <a href="#" class="i class=" fa fa-behance aria-hidden="true"></i><i class="fa fa-behance"></i></a>
+                    <img src="../static/image/social-icons/behance.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/facebook.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/twitter.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                        <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/g_plus.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!--Pinintrest -->
+                    <a class="pin-ic">
+                        <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/pinterest.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!--You_tube-->
+                    <a class="ins-ic">
+                        <i class="fab fa-you_tube fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/you_tube.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!--Skype-->
+                    <a class="sky-ic">
+                        <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/skype.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+                    <!--Flickr-->
+                    <a class="flick-ic">
+                        <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                    </a>
+                    <img src="../static/image/social-icons/flickr.png"
+                        class="-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                        alt="">
+
+
+                </div>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© beckynayere2020 Copyright:
+
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
+    <!-- <footer class="container-fluid">
+  <div class="row">
+      <div class="col-md-12 footer">
+          <div id="googleMap" style="width:100%;height:300px;">
+            <img src="image/background-pizza.jpeg">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9484798063927!2d36.921978014547044!3d-1.1964340991273164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3fba2970841f%3A0x27284ed0bb076d86!2sMagunas%20Supermarket%20Kahawa%20Wendani!5e0!3m2!1sen!2ske!4v1596474793072!5m2!1sen!2ske" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <p><i>powered by <br>becky nayere @2020</i></p>
+          </div>
+      </div>
+  </div>
+  </div>
+</footer> -->
+
+
+
+
+    {%block javascript%}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script src="{{url_for('static', filename = 'js/jquery-3.5.1.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'js/scripts.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'js/popper.min.js')}}"></script>
+
+    <script src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+    {%endblock%}
+    {% endblock %}

@@ -1,0 +1,269 @@
+nav {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.logo {
+  width: 40px;
+  background-color: #ea27;
+  border-radius: 50%;
+  padding: 0px;
+}
+.nav-item {
+  margin-left: 20px;
+}
+nav-item,
+li,
+a {
+  color: #ea272d !important;
+}
+.dropdown-item {
+  color: black !important;
+}
+.cart img {
+  height: 30px;
+}
+.nav-item,
+li,
+a:hover {
+  color: goldenrod !important;
+}
+.cart {
+  display: flex;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+.cart a {
+  color: #ffffff;
+  margin: 0px;
+}
+/* end of nav styles */
+
+#header {
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+}
+#home {
+  width: 100%;
+  object-fit: cover;
+  background-image: url("image/home.png");
+  background-color: rgba(0, 0, 0, 0.2);
+  background-position: center;
+  background-size: cover;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* start of section style */
+main {
+  background-color: rgba(0, 0, 0, 0.117);
+}
+main h2 {
+  text-align: center;
+  padding: 5vh;
+}
+.pizza {
+  box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.119);
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 32% !important;
+  margin-bottom: 4vh;
+  padding-bottom: 2vh;
+}
+
+.pizza h2 {
+  color: red;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.pizza p {
+  margin: auto 10%;
+}
+.main-row {
+  justify-content: space-around;
+}
+.pizza div {
+  display: block;
+  width: 100%;
+}
+.pizza div {
+  display: block;
+  width: 100%;
+  min-height: 25vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 1vh;
+}
+.pizza div img {
+  width: 90%;
+  height: auto;
+}
+.pizza div:last-child {
+  margin-top: 2vh;
+  padding-top: 2vh;
+}
+ul {
+  list-style-type: none;
+}
+.btn-primary {
+  width: 50%;
+}
+.no-gutters:hover {
+  background-color: rgba(0, 0, 255, 0.068);
+}
+.radioButton * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* media query to rearrange pizza divs for small screens */
+@media screen and (max-width: 720px) {
+  #pizza {
+    width: 90% !important;
+    float: left !important;
+    margin-top: 2vh;
+    padding: 2vh;
+  }
+}
+/* the crust section */
+article {
+  background-color: rgba(0, 0, 255, 0.116);
+}
+article h3,
+h4 {
+  text-align: center;
+  padding: 10px;
+}
+.nav-link {
+  color: black !important;
+}
+#initiallyHidden1,
+#initiallyHidden2 {
+  display: none;
+}
+span {
+  cursor: pointer;
+}
+/* toppings section */
+.toppings {
+  justify-content: space-around;
+}
+.card-body img {
+  width: 100%;
+  border-radius: 10px;
+  height: 30vh;
+}
+.toppings .card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(0, 0, 254, 0.02);
+}
+.card-footer {
+  display: flex !important;
+  justify-content: center !important;
+  /* align-items: center !important; */
+}
+/* media quaries to rearrange the toppings on different screens */
+@media screen and (max-width: 750px) {
+  #card {
+    width: 90% !important;
+    float: left !important;
+    margin-top: 2vh;
+    padding: 2vh;
+  }
+}
+/* the delivery services section */
+.jumbotron {
+  background-color: rgba(0, 0, 255, 0.116) !important;
+}
+/* order button */
+#order {
+  position: fixed;
+  top: 50vh;
+  right: 2px;
+  border: 1px solid yellowgreen !important;
+  color: black !important;
+  background-color: rgba(255, 0, 0, 0.418);
+  z-index: 1;
+}
+.myTown {
+  width: 40% !important;
+}
+/* menu*/
+.receiptMain {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.menu {
+  width: auto;
+}
+/* footer section */
+footer {
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  text-align: center;
+  min-width: 10vh;
+  border-top: 4px solid var(--main-red);
+}
+footer image {
+  background-image: url("image/background-pizza.jpeg");
+  max-width: 100%;
+  height: auto;
+  background-size: 100% 100%;
+  text-align: center;
+  flex-direction: column;
+  object-fit: contain;
+}
+
+footer > p {
+  margin: 1rem;
+  padding-top: 3vh;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+.googleMap {
+  width: 100%;
+  height: 300px;
+}
+.list-inline-item {
+  float: left !important;
+  /* }
+    .myList{
+        width: 100%;
+       margin: 5vh auto;
+       justify-content: center;
+       display: flex;
+         */
+}
+.footer {
+  width: 100%;
+  margin: auto !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

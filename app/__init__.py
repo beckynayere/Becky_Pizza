@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config_options
 
+
+
+
 db=SQLAlchemy()
 
 def create_app(config_name):
