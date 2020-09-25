@@ -15,37 +15,30 @@ class Pizza:
     __tablename__='pizza'
      
     id=db.Column(db.Integer,primary_key=True)
-    size=db.Column(db.String)
-    flavor=db.Column(db.String)
-    toppings=db.Column(db.String)
+    size_price=db.Relationship ('Size',backref = 'size', lazy = 'dynamic ')
+
+    flavor_price=db.Relationship('Flavor', backref = 'flavor', lazy = 'dynamic')
+    toppings_price=db.Relationship('Toppings', backref = 'toppings', lazy ='dynamic')
     price=db.Column(db.Integer)
+    
 
 
 
     def save_pizza(self):
-        Pizza.all_pizza.append(self)
         db.session.add(self)
         db.session.commit()
          
 
-    @classmethod
-    def get_pizza(cls,pizza_id):
-        """
-        Returns a pizza depending on the id
-        """
-        pizza_size=Pizza.query.filter_by(id=pizza_id).all()
-        return pizza_size
-
+    
 
 class Flavor(db.Model):
     __tablename__="flavor"
 
     id=db.Column(db.Integer,primary_key=True)
     pizza_id=db.Column(db.Integer)
-    pizza_size=db.Column(db.String)
-    pizza_toppings=db.Column(db.String)
-    pizza_price=db.relationship('Pizza',backref='pizza',lazy="dynamic")
-    
+    name=db.Column(db.String)
+    price=db.Column(db.Integer)
+    pizza = db.Column(db.Integer,db.ForeingKey("pizza.pizza_id"))
     
 
     def save_flavor (self):
@@ -53,7 +46,33 @@ class Flavor(db.Model):
         db.session.commit()
 
 
-    @classmethod
-    def get_flavor(cls,id) :
-        flavor = Flavor.query.filter_by(flavor_id=id).all()
-        return flavor
+class Size (db.Model):
+
+    __tablename__ = 'sizes'
+
+    id = db.Column(db.Integer, primary_key = True)
+    size = db.Column(db.String)
+    price = db.Column(db.Integer)
+    pizza = db.Column(db.Integer,db.ForeingKey("pizza.pizza_id"))
+    
+
+
+    def save_size(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+class Toppings(db.Model) :
+
+    __tablename__ = 'toppings'
+
+    id = db.Column(db.Integer, primary_key = True)
+    toppings = db.Column(db.String)
+    price =db.Column(db.Integer)
+    pizza = db.Column(db.Integer,db.ForeingKey("pizza.pizza_id"))
+    
+    def save_toppings(self):
+        db.session.add(self)
+        db.session.commit()
+
+
