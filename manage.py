@@ -21,7 +21,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db pizza = pizza flavor = flavor toppings = toppings size= size )
+    return dict(app = app, db = db , pizza=Pizza, flavor = Flavor, toppings = Toppings , size= Size )
 
 if __name__ == '__main__':
     manager.run()
