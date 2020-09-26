@@ -2,12 +2,13 @@ from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from . import login_manager
 
 
 
 
 
-class Pizza(UserMixin,db.Model):
+class Pizza(db.Model):
     '''
     Pizza ito define Pizza objects
     '''
@@ -16,7 +17,7 @@ class Pizza(UserMixin,db.Model):
      
     id=db.Column(db.Integer,primary_key=True)
     size_price=db.relationship ('Size', backref = 'size', lazy = 'dynamic ')
-
+    
     flavor_price=db.relationship('Flavor', backref = 'flavor', lazy = 'dynamic')
     toppings_price=db.relationship('Toppings', backref = 'toppings', lazy ='dynamic')
     price=db.Column(db.Integer)
@@ -88,9 +89,13 @@ class User(UserMixin, db.Model):
     bio = db.Column(db.String(255))
     reviews = db.relationship('Review', backref='user', lazy='dynamic')
 
+    @login_manager.user_loader
+    def load_user (id):
+        return User.query.get(int(id))
+
     @property
     def password(self):
-        raise AttributeError('You cannot read the password attribut')
+        raise AttributeError('You cannot read the password attribute')
 
     @password.setter
     def password(self, password):
