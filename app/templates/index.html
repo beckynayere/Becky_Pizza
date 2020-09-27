@@ -4,13 +4,24 @@
 
 {%block styles%}
 
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css'}}">
-<link rel="stylesheet" href
+<link href="https://fonts.googleapis.com/css?family=Arimo|Farro|Livvic&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css'}}">
+<link rel="stylesheet" href = "{{url_for('static',filename='css/styles.css')}}">
 
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+
+    
 
 {%endblock%}
 
-
+{% block navbar %}
+        {% include "navbar.html" %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
 
 <nav class="navbar navbar-expand navbar-light bg-light">
     <a class="navbar-brand" href="#home"><img class="logo" src="../static/image/logo.jpg" width="50px" alt="logo"></a>
@@ -94,7 +105,7 @@
         <div class="pizza" id="pizza">
             <div>
                 <h2>Medium pizza</h2>
-                <img src="../static/image/medium-pizza.jpg" alt="medium-pizza">
+                <img src="/Users/Bryon/Becky/app/static/image/medium-pizza.jpg" alt="medium-pizza">
             </div>
             <div>
                 <h4>PEPPERONI PIZZA</h4>
@@ -114,7 +125,7 @@
         <div class=" pizza" id="pizza">
             <div>
                 <h2>Small pizza</h2>
-                <img src="../static/image/small-pizza.jpg" alt="small pizza">
+                <img src= "../static/small-pizza.jpg" alt="small pizza">
             </div>
             <div>
                 <h4>VEGETARIAN PIZZA</h4>
@@ -162,6 +173,7 @@
                             <img src="../static/image/stuffed-crust.jpg" style="margin: 12px 6px;" min-height="250px"
                                 class="card-img" alt="stuffed crust">
                         </div>
+                
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h3 class="card-title">Crispy Crust</h3>
@@ -302,7 +314,7 @@
         <div id="card" class="card border-default mb-3" style="width: 30%;">
             <div class="card-header bg-transparent border-default">Mushroom</div>
             <div class="card-body text-primary">
-                <img src="../static/image/mushroom.jpg" alt="mushroom">
+                <img src=".app/static/image/mushroom.jpg" alt="mushroom">
                 <hr>
                 <p class="card-text">This earthy topping can be divisive in the kitchen, but many agree that it fits
                     right in
