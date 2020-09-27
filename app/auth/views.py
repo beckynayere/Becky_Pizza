@@ -2,11 +2,11 @@ from flask_login import login_required,login_user,logout_user
 from ..models import Pizza,Toppings,Flavor,Size,User
 from flask import render_template,url_for,redirect,flash,request
 from .forms import Signup,LoginForm
-from .. import db
+from .. import db,photos
 from . import auth
 
 
-@auth.route("/signup")
+@auth.route("/signup", methods=['POST','GET'])
 def signup ():
     form = Signup() 
     if form.validate_on_submit():
@@ -28,8 +28,10 @@ def login():
             login_user(user,form.remember.data)
             return redirect(url_for("main.index"))
         
-        flash("invalid username")
+        flash("invalid username or password")
     return render_template("login.html",form=form)
+
+    
 
 @auth.route("/logout")
 @login_required

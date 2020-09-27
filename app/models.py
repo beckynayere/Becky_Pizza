@@ -16,10 +16,12 @@ class Pizza(db.Model):
     __tablename__='pizza'
      
     id=db.Column(db.Integer,primary_key=True)
-    size_price=db.relationship ('Size', backref = 'size', lazy = 'dynamic ')
-    
-    flavor_price=db.relationship('Flavor', backref = 'flavor', lazy = 'dynamic')
-    toppings_price=db.relationship('Toppings', backref = 'toppings', lazy ='dynamic')
+    size_price=db.relationship('Size', backref = 'sizes', lazy = 'dynamic')
+    size_price=db.Column(db.Integer,db.ForeignKey('size.price'))
+    flavore=db.relationship('Flavor', backref = 'flavor', lazy = 'dynamic')
+    flavor_price =db.Column(db.Integer,db.ForeignKey('flavor.price'))
+    toppings_price=db.Column(db.Integer,db.ForeignKey('toppings.price'))
+    toppings=db.relationship('Toppings', backref = 'toppings' , lazy = 'dynamic')
     price=db.Column(db.Integer)
     
 
