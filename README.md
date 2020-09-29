@@ -1,25 +1,14 @@
-# Pitch_Minute
-## Author
-
-[becky nayere](https://github.com/beckynayere)
+# Pizza-shop
 
 # Description
-This  is a flask application that allows users to post one minute pitch and also allows other users who have signed up to comment and upvote or downvote a pitch. It also allows an individual to signup to be able to access the functionalities of the application
-
+This  is a flask application that allows users to log in and choose among the pizzas available with topping of their liking and place an order. they can register and long in in future with the username and password
 ## Live Link
 [View Site](httpherokuapp.com)
 
 ## Screenshot
 
 
-## User Story
 
-* Comment on the different pitches posted py other uses.
-* See the pitches posted by other uses.
-* Vote on s pitch they have viwed by giving it a upvote or a downvote.
-* Register to be allowed to log in to the application
-* View pitches from the different categories.
-* Submit a pitch to a specific category of their choice.
 
 ## BDD
 | Behaviour | Input | Output |
@@ -27,8 +16,8 @@ This  is a flask application that allows users to post one minute pitch and also
 | Load the page | **On page load** | Get all posts, Select between signup and login|
 | Select SignUp| **Email**,**Username**,**Password** | Redirect to login|
 | Select Login | **Username** and **password** | Redirect to page with app pitches based on categories and commenting section|
-| Select comment button | **Comment** | Form that you input your comment|
-| Click on submit |  | Redirect to all comments tamplate with your comment and other comments|
+| Select the desired pizza | **buy** | Form that you input your comment|
+| Click on submit |  | place the order with the desired topping|
 
 
 
@@ -39,7 +28,7 @@ To get the code..
 
 1. Cloning the repository:
   ```bash
-  https://github.com/beckynayere/Pitch_One_Minute.git
+ https://github.com/beckynayere/Pizza-Shop
   ```
 2. Move to the folder and install requirements
   ```bash
@@ -76,8 +65,7 @@ Open the application on your browser `127.0.0.1:5000`.
 
 ## Contact Information 
 
-If you have any question or contributions, please email me at [nereahhopebecky@gmail.com]
+
 
 ## License
 * *MIT License:*
-* Copyright (c) 2020 **Becky Nayere**
